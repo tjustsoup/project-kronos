@@ -13,13 +13,13 @@ type MainMenuProps = BasePropsScene & {
 
 }
 
-const classButton = "font-michroma text-shadow-lg/15 text-xl px-8 py-2"
+const classButton = "font-michroma text-shadow-lg/15 text-xl px-8 py-2 !rounded-full"
 
 export default function MainMenu(props: MainMenuProps) {
   const [wdw, setWdw] = useState<MainMenuWindowName | null>(null)
 
   function handleSetWdw(name: MainMenuWindowName | null) {
-    playXIVSound("Open_Window")
+    playXIVSound("Confirm")
     setWdw(name)
   }
 
