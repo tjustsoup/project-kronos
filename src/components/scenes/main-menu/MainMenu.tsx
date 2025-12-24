@@ -19,8 +19,13 @@ export default function MainMenu(props: MainMenuProps) {
   const [wdw, setWdw] = useState<MainMenuWindowName | null>(null)
 
   function handleSetWdw(name: MainMenuWindowName | null) {
-    playSound("click_1")
+    playSound("FFXIV_Confirm", 0.25)
     setWdw(name)
+  }
+
+  function handleClose() {
+    playSound("FFXIV_Close_Window", 0.2)
+    setWdw(null)
   }
 
   return (
@@ -29,7 +34,7 @@ export default function MainMenu(props: MainMenuProps) {
       <div className="flex flex-col gap-6 justify-end mb-40">
         <XIVButton
           twcss={classButton}
-          onClick={() => playSound("click_1")}
+          onClick={() => handleSetWdw("New Game")}
         >
           New Game
         </XIVButton>
@@ -47,24 +52,13 @@ export default function MainMenu(props: MainMenuProps) {
         </XIVButton>
       </div>
 
-      {/* Selected Window */}
-      <WindowWrapper active={Boolean(wdw)}>
-        {wdw ? <MainMenuWindow name={wdw} /> : null}
-      </WindowWrapper>
-
+      <WindowWrapper
+        active={Boolean(wdw === "New Game")}
+        children={<WindowNewGame />}
+        title={"New Game"}
+        subtitle={<div className="font-cinzel">TYPE SHIT</div>}
+        onClose={handleClose}
+      />
     </div>
   )
-}
-
-function MainMenuWindow({ name }: { name: MainMenuWindowName }) {
-  switch (name) {
-    case "Load":
-      return <WindowLoad />;
-
-    case "New Game":
-      return <WindowNewGame />;
-
-    case "Settings":
-      return <WindowSettings />;
-  }
 }

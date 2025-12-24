@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --ui-grey: hsl(0, 0, 18);
+  --ui-light: hsla(0, 0, 60%, 1);
+  --ui-light-x: hsla(0, 0, 60%, 0);
 }
 
 @theme inline {
@@ -32,4 +35,27 @@ body {
 [data-allow-default-mouse],
 [data-allow-default-mouse] * {
   user-select: text;
+}
+
+.window-wrapper {
+  background:
+    linear-gradient(to bottom, var(--ui-light) -24px, var(--ui-light-x) 16px),
+    var(--ui-grey);
+  border-radius: 12px;
+  box-shadow:
+    inset 0 0 2px hsla(0, 0, 100%, 0.1),
+    0 5px 5px hsla(0, 0%, 0%, 0.35);
+  padding: 6px 10px;
+  min-height: 300;
+  min-width: 400;
+}
+
+.divider {
+  background-color: hsla(0, 0, 0, 0.2);
+  box-shadow:
+    inset 0px 1px 1px hsla(0, 0, 0, 0.2),
+    inset 0px -1px 1px hsla(0, 0, 100%, 0.2);
+  border-radius: 2px;
+  height: 2px;
+  width: 100%;
 }
