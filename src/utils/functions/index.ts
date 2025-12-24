@@ -1,7 +1,7 @@
 import { disableContextMenuByDefault } from "./disableContextMenuByDefault";
-import { playXIVSound } from "./playXIVSound";
+import { playSound } from "./playSound";
 
 export {
   disableContextMenuByDefault,
-  playXIVSound,
+  playSound,
 }

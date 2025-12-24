@@ -1,6 +1,6 @@
 import { BasePropsScene } from "@/src/types"
 import { XIVButton } from "../../interface"
-import { playXIVSound } from "@/src/utils/functions"
+import { playSound } from "@/src/utils/functions"
 import WindowWrapper from "../../interface/window-wrapper/WindowWrapper"
 import { useState } from "react"
 import WindowLoad from "./WindowLoad"
@@ -19,7 +19,7 @@ export default function MainMenu(props: MainMenuProps) {
   const [wdw, setWdw] = useState<MainMenuWindowName | null>(null)
 
   function handleSetWdw(name: MainMenuWindowName | null) {
-    playXIVSound("Confirm")
+    playSound("click_1")
     setWdw(name)
   }
 
@@ -29,19 +29,19 @@ export default function MainMenu(props: MainMenuProps) {
       <div className="flex flex-col gap-6 justify-end mb-40">
         <XIVButton
           twcss={classButton}
-          onClick={() => handleSetWdw("New Game")}
+          onClick={() => playSound("click_1")}
         >
           New Game
         </XIVButton>
         <XIVButton
           twcss={classButton}
-          onClick={() => handleSetWdw("Load")}
+          onClick={() => playSound("click_2")}
         >
           Load
         </XIVButton>
         <XIVButton
           twcss={classButton}
-          onClick={() => handleSetWdw("Settings")}
+          onClick={() => playSound("sink_1")}
         >
           Settings
         </XIVButton>
